@@ -8,12 +8,12 @@ class Post(models.Model):
     author = models.ForeignKey(get_user_model(), on_delete=models.CASCADE, null=False)
     body = models.TextField(null=False)
     publication_date = models.DateField(auto_now_add=True)
-    #likes = models.PositiveIntegerField(default=0)
-    #dislikes = models.PositiveIntegerField(default=0)
-    #users_reaction = models.ManyToManyField(get_user_model(), blank=True, related_name='user_like')
+    likes = models.PositiveIntegerField(default=0)
+    dislikes = models.PositiveIntegerField(default=0)
+    users_reaction = models.ManyToManyField(get_user_model(), blank=True, related_name='user_like')
 
     def __str__(self):
         return self.title
 
-    def get_absolute_url(self):
-        return reverse('post_detail', args=[str(self.id)])
+    #def get_absolute_url(self):
+     #   return reverse('post_detail', args=[str(self.id)])

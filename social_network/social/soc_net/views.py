@@ -1,7 +1,7 @@
 from django.views.generic import View
 from .models import Post
-from django.http import JsonResponse
 from rest_framework import generics
+from rest_framework.response import Response
 from .serializers import SocCreateSerializers, SocListSerializers, SocDetailSerializers
 
 
@@ -10,9 +10,31 @@ class SocListView(generics.ListAPIView):
     queryset = Post.objects.all()
 
 
-class SocDetailView(generics.RetrieveAPIView):
+class SocDetailView(generics.RetrieveUpdateAPIView):
     serializer_class = SocDetailSerializers
     queryset = Post.objects.all()
+
+    def put(self, request, *args, **kwargs):
+       return self.update(request, *args, **kwargs)
+
+    # def put(self, request, *args, **kwargs):
+    #     post_id = self.request.GET.get('post_id')
+    #     post = Post.objects.get(id=post_id)
+    #     like = self.request.GET.get('like')
+    #     dislike = self.request.GET.get('dislike')
+    #     if like and (request.user not in post.users_reaction.all()):
+    #         post.likes += 1
+    #         post.users_reaction.add(request.user)
+    #         post.save()
+    #     if dislike and (request.user not in post.users_reaction.all()):
+    #         post.dislikes += 1
+    #         post.users_reaction.add(request.user)
+    #         post.save()
+    #     data = {
+    #         'likes': post.likes,
+    #         'dislikes': post.dislikes
+    #     }
+    #     return Response(data)
 
 
 class SocCreateView(generics.CreateAPIView):

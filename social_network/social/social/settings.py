@@ -48,7 +48,6 @@ INSTALLED_APPS = [
     'soc_net.apps.SocNetConfig',
     'users.apps.UsersConfig',
     'api.apps.ApiConfig',
-    #'likes',
 ]
 
 AUTH_USER_MODEL = 'users.CustomUser'
