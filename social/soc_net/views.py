@@ -1,6 +1,5 @@
 from .models import Post
 from rest_framework import generics
-from .permissions import IsOwnerOrReadOnly
 from rest_framework.permissions import IsAuthenticated
 from .serializers import SocCreateSerializers, SocListSerializers, SocDetailSerializers
 
