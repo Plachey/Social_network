@@ -54,12 +54,6 @@ AUTH_USER_MODEL = 'users.CustomUser'
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 SITE_ID = 1
 
-# LIKE_MODELS = {
-#     "soc_net.Post": {
-#         'serializer': 'social.soc_net.serializers.SocDetailSerializers'
-#     },
-#}
-
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
